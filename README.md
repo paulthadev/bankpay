@@ -4,7 +4,7 @@ A Fictional &amp; Minimalist Bank
 
 ## 🎈Live Demo🎈
 
-**You Can See The `Bankist` Live On:** [Here](https://fadayopaul.github.io/bankpay/)
+**You Can See The `BankPay` Live On:** [Here](https://fadayopaul.github.io/bankpay/)
 
 <!-- ## 👉Log-in credentials👈
 
@@ -15,9 +15,9 @@ A Fictional &amp; Minimalist Bank
 
 ## Description
 
-**Bankist is a Fictional & Online Bank.**
+**BankPay is a Fictional & Online Bank.**
 
-**Bankist is written in Javascript basically Javascript has the responsibility of the DOM manipulation and user interaction over the entire project.**
+**BankPay is written in Javascript basically Javascript has the responsibility of the DOM manipulation and user interaction over the entire project.**
 
 <!-- > ⚠ Alert: The app has some browser compatibility issues as I've noticed, especially on mobile browsers and if you are not using the latest versions of the browser, the app may not work properly or not working at all. -->
 
@@ -39,4 +39,5 @@ A Fictional &amp; Minimalist Bank
 - JS (Main)🚀
 
 > ✅ **Feel Free To Fork and Contribute**
+
 # bankpay
