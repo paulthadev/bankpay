@@ -82,7 +82,7 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
-// Displaying the balance of the account
+// Caclculating  & Displaying the balance of the account
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce(function (acc, mov) {
     return acc + mov;
@@ -91,6 +91,24 @@ const calcDisplayBalance = function (movements) {
   labelBalance.textContent = `${balance} €`;
 };
 calcDisplayBalance(account1.movements);
+
+//
+const calcDisplaySummary = function (movements) {
+  //deposit--in
+  const incomes = movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumIn.textContent = incomes;
+
+  //withdrawal--out
+  const withdraw = movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumOut.textContent = withdraw;
+};
+calcDisplaySummary(account1.movements);
 
 // Creating username for the accounts
 const createUsernames = function (accounts) {
