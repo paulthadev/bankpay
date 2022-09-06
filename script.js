@@ -67,14 +67,14 @@ const displayMovements = function (movements) {
 
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
-    const sign = "€";
+    const sign = "";
 
     // Creating HTML template
     const html = `
           <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}
       </div>
-        <div class="movements__value">${mov} ${sign} </div>
+        <div class="movements__value">${mov}€ </div>
       </div>`;
     // Attaching the htmltemplate to the container in the DOM
     containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -88,7 +88,7 @@ const calcDisplayBalance = function (movements) {
     return acc + mov;
   }, 0);
 
-  labelBalance.textContent = `${balance} €`;
+  labelBalance.textContent = `${balance}€`;
 };
 calcDisplayBalance(account1.movements);
 
@@ -99,14 +99,23 @@ const calcDisplaySummary = function (movements) {
     .filter((mov) => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
 
-  labelSumIn.textContent = incomes;
+  labelSumIn.textContent = `${incomes}€`;
 
   //withdrawal--out
-  const withdraw = movements
+  const out = movements
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
 
-  labelSumOut.textContent = withdraw;
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  //interest of 1.2% on each deposit, Only if interest >= 1
+  const interest = movements
+    .filter((mov) => mov > 0)
+    .map((mov) => (mov * 1.2) / 100)
+    .filter((mov) => mov >= 1)
+    .reduce((acc, int) => acc + int, 0);
+
+  labelSumInterest.textContent = `${interest}€`;
 };
 calcDisplaySummary(account1.movements);
 
@@ -123,3 +132,11 @@ const createUsernames = function (accounts) {
   });
 };
 createUsernames(accounts);
+
+// Event Listeners
+btnLogin.addEventListener("click", function (e) {
+  // PREVENT FORM SUBMITING
+  e.preventDefault();
+
+  console.log("LOGIN");
+});
