@@ -6,12 +6,15 @@ A Fictional &amp; Minimalist Bank
 
 **You Can See The `BankPay` Live On:** [Here](https://fadayopaul.github.io/bankpay/)
 
-<!-- ## 👉Log-in credentials👈
+## 👉Log-in credentials 👈
 
 | Account       | UserName | Password |
 | ------------- | -------- | -------- |
-| Admin Account | `aa`     | `1111`   |
-| Guest Account | `ga`     | `2222`   | -->
+| Admin Account | `pf`     | `1111`   |
+| Guest Account | `oom`    | `2222`   |
+| Guest Account | `op`     | `3333`   |
+| Guest Account | `to`     | `4444`   |
+| Guest Account | `am`     | `5555`   |
 
 ## Description
 
@@ -30,7 +33,7 @@ A Fictional &amp; Minimalist Bank
 - 🔁 _Log-out Timer_
 - 🔥 _Sort Movements_
 - 💥 _Internationalize Date & Currency_
-- 🥳 _Both Mobile & Desktop Responsive_
+<!-- - 🥳 _Both Mobile & Desktop Responsive_ -->
 
 **Technologies:**
 
@@ -40,4 +43,4 @@ A Fictional &amp; Minimalist Bank
 
 > ✅ **Feel Free To Fork and Contribute**
 
-# bankpay
+# Bankpay
