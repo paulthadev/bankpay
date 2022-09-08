@@ -89,12 +89,12 @@ const displayMovements = function (movements) {
 };
 
 // Caclculating  & Displaying the balance of the account
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce(function (acc, mov) {
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce(function (acc, mov) {
     return acc + mov;
   }, 0);
 
-  labelBalance.textContent = `${balance}€`;
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
 //
@@ -165,9 +165,30 @@ btnLogin.addEventListener("click", function (e) {
     displayMovements(currentAccount.movements);
 
     // Display Balance
-    calcDisplayBalance(currentAccount.movements);
+    calcDisplayBalance(currentAccount);
 
     // Display summary
     calcDisplaySummary(currentAccount);
+  }
+});
+
+// Transfer Money Integration
+btnTransfer.addEventListener("click", function (e) {
+  e.preventDefault(); // prevent form from submiting
+
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(function (acc) {
+    return acc.username === inputTransferTo.value;
+  });
+
+  if (
+    amount > 0 &&
+    currentAccount.balance > amount &&
+    receiverAcc &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    //doing the transfer
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
   }
 });
