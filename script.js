@@ -137,6 +137,17 @@ const createUsernames = function (accounts) {
 };
 createUsernames(accounts);
 
+const updateUI = function (acc) {
+  // Display movement
+  displayMovements(acc.movements);
+
+  // Display Balance
+  calcDisplayBalance(acc);
+
+  // Display summary
+  calcDisplaySummary(acc);
+};
+
 // Event handler
 let currentAccount;
 
@@ -154,21 +165,14 @@ btnLogin.addEventListener("click", function (e) {
       currentAccount.owner.split(" ")[0]
     }`;
 
+    // display the UI
+    containerApp.style.opacity = 100;
+
     // reset login field
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
 
-    // display the UI
-    containerApp.style.opacity = 100;
-
-    // Display movement
-    displayMovements(currentAccount.movements);
-
-    // Display Balance
-    calcDisplayBalance(currentAccount);
-
-    // Display summary
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
   }
 });
 
@@ -190,5 +194,7 @@ btnTransfer.addEventListener("click", function (e) {
     //doing the transfer
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
+
+    updateUI(currentAccount);
   }
 });
