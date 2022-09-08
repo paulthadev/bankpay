@@ -22,8 +22,6 @@ A Fictional &amp; Minimalist Bank
 
 **BankPay is written in Javascript basically Javascript has the responsibility of the DOM manipulation and user interaction over the entire project.**
 
-<!-- > ⚠ Alert: The app has some browser compatibility issues as I've noticed, especially on mobile browsers and if you are not using the latest versions of the browser, the app may not work properly or not working at all. -->
-
 **Features:**
 
 - ✅ _Log-in_
@@ -33,7 +31,7 @@ A Fictional &amp; Minimalist Bank
 - 🔁 _Log-out Timer_
 - 🔥 _Sort Movements_
 - 💥 _Internationalize Date & Currency_
-<!-- - 🥳 _Both Mobile & Desktop Responsive_ -->
+- 🥳 _Both Mobile & Desktop Responsive_
 
 **Technologies:**
 
@@ -44,3 +42,5 @@ A Fictional &amp; Minimalist Bank
 > ✅ **Feel Free To Fork and Contribute**
 
 # Bankpay
+
+> ⚠ Alert: The app has some browser compatibility issues as I've noticed, especially on mobile browsers and if you are not using the latest versions of the browser, the app may not work properly or not working at all.
