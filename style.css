@@ -444,8 +444,8 @@ h2 {
 
 @media only screen and (max-width: 425px) {
   .summary__value {
-    font-size: 2rem;
-    margin-right: 1.5rem;
+    font-size: 1.5rem;
+    margin-right: 1.4rem;
   }
 
   .summary {
