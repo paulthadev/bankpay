@@ -8,13 +8,13 @@ A Fictional &amp; Minimalist Bank
 
 ## 👉Log-in credentials 👈
 
-| Account       | UserName | Password |
-| ------------- | -------- | -------- |
-| Admin Account | `pf`     | `1111`   |
-| Guest Account | `oom`    | `2222`   |
-| Guest Account | `op`     | `3333`   |
-| Guest Account | `to`     | `4444`   |
-| Guest Account | `am`     | `5555`   |
+| Account               | UserName | Password |
+| --------------------- | -------- | -------- |
+| Paul Fadayo           | `pf`     | `1111`   |
+| Ozioko Ogechi Maureen | `oom`    | `2222`   |
+| Omale Philips         | `op`     | `3333`   |
+| Mayokun Adenekan      | `am`     | `4444`   |
+| Taiwo Olabamipe       | `to`     | `5555`   |
 
 ## Description
 
