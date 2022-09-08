@@ -13,7 +13,7 @@ A Fictional &amp; Minimalist Bank
 | Paul Fadayo           | `pf`     | `1111`   |
 | Ozioko Ogechi Maureen | `oom`    | `2222`   |
 | Omale Philips         | `op`     | `3333`   |
-| Mayokun Adenekan      | `am`     | `4444`   |
+| Mayokun Adenekan      | `ma`     | `4444`   |
 | Taiwo Olabamipe       | `to`     | `5555`   |
 
 ## Description
