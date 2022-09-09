@@ -26,7 +26,7 @@ A Fictional &amp; Minimalist Bank
 
 - ✅ _Log-in_
 - 🎉 _Transfer To Other Accounts_
-- 🚀 _Request Loan_
+- 🚀 _Request Loan_ (Loan must be at least 10% of any of your deposit)
 - 🎈 _Delete Account_
 - 🔁 _Log-out Timer_
 - 🔥 _Sort Movements_
