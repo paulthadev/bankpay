@@ -315,7 +315,7 @@ h2 {
 }
 
 .loan--info {
-  padding-top: 1em;
+  /* padding-top: 1em; */
   font-size: 1.1em;
   font-style: italic;
 }
