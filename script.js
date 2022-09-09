@@ -7,35 +7,35 @@
 // Data
 const account1 = {
   owner: "Paul Fadayo",
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  movements: [200, 450, -400, 3000, -653.75, -130, 70.62, 1300],
   interestRate: 1.2, // %
   pin: 1111,
 };
 
 const account2 = {
   owner: "Ozioko Ogechi Maureen",
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  movements: [5000, 3400, -150, -790.54, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
 };
 
 const account3 = {
   owner: "Omale Philips",
-  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  movements: [200, -200, 340, -300, -20, 50, 400.54, -460],
   interestRate: 0.7,
   pin: 3333,
 };
 
 const account4 = {
   owner: "Mayokun Adenekan",
-  movements: [600, -50, 640, -100, -20, 1050, 1400, -960],
+  movements: [600, -50, 640, -100.98, -20, 1050, 1400, -960],
   interestRate: 0.8,
   pin: 4444,
 };
 
 const account5 = {
   owner: "Taiwo Olabamipe",
-  movements: [430, 1000, 700, 50, 90],
+  movements: [430.99, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 5555,
 };
@@ -190,7 +190,7 @@ btnTransfer.addEventListener("click", function (e) {
 
   if (
     amount > 0 &&
-    currentAccount.balance > amount &&
+    currentAccount.balance >= amount &&
     receiverAcc &&
     receiverAcc?.username !== currentAccount.username
   ) {
