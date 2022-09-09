@@ -231,7 +231,7 @@ btnClose.addEventListener("click", function (e) {
     currentAccount.pin === Number(inputClosePin.value)
   ) {
     const index = accounts.findIndex(
-      (acc) => accounts.username === currentAccount.username
+      (acc) => acc.username === currentAccount.username
     );
 
     // Delete account
@@ -239,6 +239,8 @@ btnClose.addEventListener("click", function (e) {
 
     // Hide UI
     containerApp.style.opacity = 0;
+
+    console.log(accounts);
   }
 
   inputCloseUsername.value = inputClosePin.value = "";
