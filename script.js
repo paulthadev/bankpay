@@ -185,6 +185,9 @@ btnTransfer.addEventListener("click", function (e) {
     return acc.username === inputTransferTo.value;
   });
 
+  inputTransferTo.value = inputTransferAmount.value = "";
+  inputTransferAmount.blur();
+
   if (
     amount > 0 &&
     currentAccount.balance > amount &&
@@ -195,6 +198,29 @@ btnTransfer.addEventListener("click", function (e) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
+    // UpdateUI
     updateUI(currentAccount);
   }
+});
+
+// delete account
+btnClose.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(
+      (acc) => accounts.username === currentAccount.username
+    );
+
+    // Delete account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+
+  inputCloseUsername.value = inputClosePin.value = "";
 });
