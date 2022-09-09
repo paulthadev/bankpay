@@ -215,6 +215,7 @@ btnLoan.addEventListener("click", function (e) {
   ) {
     currentAccount.movements.push(amount);
 
+    // UpdateUI
     updateUI(currentAccount);
   }
 
