@@ -7,40 +7,45 @@
 // Data
 const account1 = {
   owner: "Paul Fadayo",
-  movements: [200, 450, -400, 3000, -653.75, -130, 70.62, 1300],
+  movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
   interestRate: 1.2, // %
   pin: 1111,
+
+  movementsDates: [
+    "2019-11-18T21:31:17.178Z",
+    "2019-12-23T07:42:02.383Z",
+    "2020-01-28T09:15:04.904Z",
+    "2020-04-01T10:17:24.185Z",
+    "2020-05-08T14:11:59.604Z",
+    "2020-05-27T17:01:17.194Z",
+    "2020-07-11T23:36:17.929Z",
+    "2020-07-12T10:51:36.790Z",
+  ],
+  currency: "EUR",
+  locale: "pt-PT", // de-DE
 };
 
 const account2 = {
-  owner: "Ozioko Ogechi Maureen",
+  owner: "Guest Account",
   movements: [5000, 3400, -150, -790.54, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
+
+  movementsDates: [
+    "2019-11-01T13:15:33.035Z",
+    "2019-11-30T09:48:16.867Z",
+    "2019-12-25T06:04:23.907Z",
+    "2020-01-25T14:18:46.235Z",
+    "2020-02-05T16:33:06.386Z",
+    "2020-04-10T14:43:26.374Z",
+    "2020-06-25T18:49:59.371Z",
+    "2020-07-26T12:01:20.894Z",
+  ],
+  currency: "USD",
+  locale: "en-US",
 };
 
-const account3 = {
-  owner: "Omale Philips",
-  movements: [200, -200, 340, -300, -20, 50, 400.54, -460],
-  interestRate: 0.7,
-  pin: 3333,
-};
-
-const account4 = {
-  owner: "Mayokun Adenekan",
-  movements: [600, -50, 640, -100.98, -20, 1050, 1400, -960],
-  interestRate: 0.8,
-  pin: 4444,
-};
-
-const account5 = {
-  owner: "Taiwo Olabamipe",
-  movements: [430.99, 1000, 700, 50, 90],
-  interestRate: 1,
-  pin: 5555,
-};
-
-const accounts = [account1, account2, account3, account4, account5];
+const accounts = [account1, account2];
 
 // Elements
 const labelWelcome = document.querySelector(".welcome");
@@ -68,7 +73,11 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+/////////////////////////////////////////////
+//functions
+
 // creating the htmltemplates and the transaction movements to the DOM
+
 const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = "";
 
@@ -84,6 +93,7 @@ const displayMovements = function (movements, sort = false) {
       </div>
         <div class="movements__value">${mov}€ </div>
       </div>`;
+
     // Attaching the htmltemplate to the container in the DOM
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
@@ -95,7 +105,7 @@ const calcDisplayBalance = function (acc) {
     return acc + mov;
   }, 0);
 
-  labelBalance.textContent = `${acc.balance}€`;
+  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
 };
 
 //
@@ -245,6 +255,7 @@ btnClose.addEventListener("click", function (e) {
   inputCloseUsername.value = inputClosePin.value = "";
 });
 
+// Sort movements integraton
 let sorted = false;
 btnSort.addEventListener("click", function (e) {
   e.preventDefault();
