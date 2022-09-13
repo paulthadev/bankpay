@@ -19,9 +19,10 @@
     <p class="welcome">Log in to get started</p>
     <img src="logo.png" alt="Logo" class="logo" />
     <form class="login">
-      <input type="text" placeholder="user" class="login__input login__input--user" />
+      <input type="text" placeholder="user" class="login__input login__input--user" autocomplete="on" />
+
       <!-- In practice, use type="password" -->
-      <input type="password" placeholder="PIN" maxlength="4" class="login__input login__input--pin" />
+      <input type="password" placeholder="PIN" maxlength="4" class="login__input login__input--pin" autocomplete="on" />
       <button class="login__btn">&rarr;</button>
     </form>
   </nav>
@@ -94,7 +95,7 @@
       <h2>Close account</h2>
       <form class="form form--close">
         <input type="text" class="form__input form__input--user" />
-        <input type="password" maxlength="6" class="form__input form__input--pin" />
+        <input type="password" maxlength="6" class="form__input form__input--pin" autocomplete="on" />
         <button class="form__btn form__btn--close">&rarr;</button>
         <label class="form__label">Confirm user</label>
         <label class="form__label">Confirm PIN</label>
