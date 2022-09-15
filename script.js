@@ -200,7 +200,7 @@ btnLogin.addEventListener("click", function (e) {
     const min = now.getMinutes();
     const sec = now.getSeconds();
 
-    labelDate.textContent = `${day}/${month}/${year},  ${hour}`;
+    labelDate.textContent = `${day}/${month}/${year},  ${hour}:${min}`;
 
     // reset login field
     inputLoginUsername.value = inputLoginPin.value = "";
