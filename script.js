@@ -263,10 +263,15 @@ btnSort.addEventListener("click", function (e) {
   displayMovements(currentAccount.movements, !sorted);
 
   sorted = !sorted;
-});
 
-btnLogin.addEventListener("click", function () {
-  [...document.querySelectorAll(".movements__row")].forEach(function (row, i) {
-    if (i % 2 === 0) row.style.backgroundColor = "#fffddd";
-  });
+  // background tweak for movement
+
+  if (sorted == true) {
+    [...document.querySelectorAll(".movements__row")].forEach(function (
+      row,
+      i
+    ) {
+      if (i % 2 === 0) row.style.backgroundColor = "#fffeee";
+    });
+  }
 });
