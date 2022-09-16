@@ -85,13 +85,12 @@ const formatMovementDate = function (date) {
   if (daysPassed === 0) return "Today";
   if (daysPassed === 1) return "Yesterday";
   if (daysPassed <= 7) return `${daysPassed} days ago`;
-  else {
-    const day = `${date.getDate()}`.padStart(2, 0);
-    const month = `${date.getMonth() + 1}`.padStart(2, 0);
-    const year = date.getFullYear();
 
-    return `${day}-${month}-${year}`;
-  }
+  const day = `${date.getDate()}`.padStart(2, 0);
+  const month = `${date.getMonth() + 1}`.padStart(2, 0);
+  const year = date.getFullYear();
+
+  return `${day}-${month}-${year}`;
 };
 
 // creating the html templates & the transaction movements to the DOM
@@ -206,15 +205,18 @@ btnLogin.addEventListener("click", function (e) {
 
     // Create current Date
     const now = new Date();
+    const options = {
+      hour: "numeric",
+      minute: "numeric",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      weekday: "long",
+    };
 
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const year = now.getFullYear();
-    const hour = now.getHours();
-    const min = now.getMinutes();
-    const sec = now.getSeconds();
-
-    labelDate.textContent = `${day}/${month}/${year},  ${hour}:${min}`;
+    labelDate.textContent = new Intl.DateTimeFormat("en-US", options).format(
+      now
+    );
 
     // reset login field
     inputLoginUsername.value = inputLoginPin.value = "";
