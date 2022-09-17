@@ -123,7 +123,7 @@ nav {
   margin-bottom: -0.2rem;
 }
 
-.balance__date {
+.date {
   font-size: 1.4rem;
   color: #888;
 }
@@ -374,7 +374,7 @@ h2 {
     font-size: 1.7rem;
   }
 
-  .balance__date {
+  .date {
     font-size: 1.4rem;
   }
 
@@ -443,7 +443,7 @@ h2 {
     font-size: 1.9rem;
   }
 
-  .balance__date {
+  .date {
     font-size: 1.6rem;
   }
   .summary__value {
