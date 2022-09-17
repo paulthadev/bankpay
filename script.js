@@ -22,7 +22,7 @@ const account1 = {
     "2022-09-16T10:51:36.790Z",
   ],
   currency: "EUR",
-  locale: "pt-PT", // de-DE
+  locale: "en-GB", //
 };
 
 const account2 = {
@@ -77,7 +77,7 @@ const inputClosePin = document.querySelector(".form__input--pin");
 //FUNCTIONS
 
 // Creating the movement date function
-const formatMovementDate = function (date) {
+const formatMovementDate = function (date, locale) {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
   const daysPassed = calcDaysPassed(new Date(), date);
@@ -86,11 +86,15 @@ const formatMovementDate = function (date) {
   if (daysPassed === 1) return "Yesterday";
   if (daysPassed <= 7) return `${daysPassed} days ago`;
 
-  const day = `${date.getDate()}`.padStart(2, 0);
-  const month = `${date.getMonth() + 1}`.padStart(2, 0);
-  const year = date.getFullYear();
+  return new Intl.DateTimeFormat(locale).format(date);
+};
 
-  return `${day}-${month}-${year}`;
+// Creating the currency formatter
+const formatCur = function (value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(value);
 };
 
 // creating the html templates & the transaction movements to the DOM
@@ -105,7 +109,9 @@ const displayMovements = function (acc, sort = false) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
     const date = new Date(acc.movementsDates[i]);
-    const displayDate = formatMovementDate(date);
+    const displayDate = formatMovementDate(date, acc.locale);
+
+    const formattedMov = formatCur(mov, acc.locale, acc.currency);
 
     // Creating HTML template
     const html = `
@@ -113,7 +119,7 @@ const displayMovements = function (acc, sort = false) {
         <div class="movements__type movements__type--${type}">${i + 1} ${type}
       </div>
       <div class="movements__date">${displayDate}</div>
-        <div class="movements__value">${mov.toFixed(2)}€ </div>
+        <div class="movements__value">${formattedMov}</div>
       </div>`;
 
     // Attaching the htmltemplate to the container in the DOM
@@ -127,7 +133,7 @@ const calcDisplayBalance = function (acc) {
     return acc + mov;
   }, 0);
 
-  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
+  labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 
 //
@@ -137,14 +143,14 @@ const calcDisplaySummary = function (acc) {
     .filter((mov) => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
 
-  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
+  labelSumIn.textContent = formatCur(incomes, acc.locale, acc.currency);
 
   //withdrawal--out
   const out = acc.movements
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
 
-  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
+  labelSumOut.textContent = formatCur(Math.abs(out), acc.locale, acc.currency);
 
   //interest of 1.2% on each deposit, Only if interest >= 1
   const interest = acc.movements
@@ -153,7 +159,7 @@ const calcDisplaySummary = function (acc) {
     .filter((mov) => mov >= 1)
     .reduce((acc, int) => acc + int, 0);
 
-  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
+  labelSumInterest.textContent = formatCur(interest, acc.locale, acc.currency);
 };
 
 // Creating username for the accounts
@@ -211,10 +217,12 @@ btnLogin.addEventListener("click", function (e) {
       day: "numeric",
       month: "long",
       year: "numeric",
-      weekday: "long",
+      weekday: "short",
     };
 
-    labelDate.textContent = new Intl.DateTimeFormat("en-US", options).format(
+    const locale = navigator.language;
+
+    labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
       now
     );
 
