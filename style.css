@@ -40,6 +40,14 @@ nav {
   align-items: center;
   padding: 0 2rem;
 }
+footer {
+  text-align: center;
+}
+
+.footer--link {
+  color: #333;
+  text-decoration: none;
+}
 
 .welcome {
   font-size: 1.9rem;
