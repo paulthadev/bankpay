@@ -187,7 +187,33 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
-//////////////////////////////////////
+// Creating the logout timer
+const startLogOutTimer = function () {
+  // set timer to 3 minutes
+  let time = 180;
+
+  // call the timer every second
+  const timer = setInterval(function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    //in each call, print the remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // Decrease by 1s
+    time--;
+
+    // When time reach 0, stop timer and logout user
+    if (time === 0) {
+      clearInterval(timer);
+      containerApp.style.opacity = 0;
+      labelWelcome.textContent = "Log in to get started";
+    }
+  }, 1000);
+};
+
+////////////////////////////////////////////////////
+
 // Event handlers
 let currentAccount;
 
@@ -230,6 +256,9 @@ btnLogin.addEventListener("click", function (e) {
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
 
+    // Start Timer
+    startLogOutTimer();
+
     updateUI(currentAccount);
   }
 });
@@ -271,18 +300,17 @@ btnLoan.addEventListener("click", function (e) {
 
   const amount = Math.floor(inputLoanAmount.value);
 
-  if (
-    amount > 0 &&
-    currentAccount.movements.some((mov) => mov >= amount * 0.1)
-  ) {
-    currentAccount.movements.push(amount);
+  if (amount > 0 && currentAccount.movements.some((mov) => mov >= amount * 0.1))
+    setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // add and push loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      // add and push loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // UpdateUI
-    updateUI(currentAccount);
-  }
+      // UpdateUI
+      updateUI(currentAccount);
+    }, 4000);
 
   inputLoanAmount.value = "";
 });
