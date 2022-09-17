@@ -10,8 +10,8 @@ A Fictional &amp; Minimalist Bank
 
 | Account       | UserName | Password | currency |
 | ------------- | -------- | -------- | -------- |
-| Paul Fadayo   | `pf`     | `1111`   | 'EUR'    |
-| Guest Account | `ga`     | `2222`   | 'USD'    |
+| Paul Fadayo   | `pf`     | `1111`   | `EUR`    |
+| Guest Account | `ga`     | `2222`   | `USD`    |
 
 ## Description
 
