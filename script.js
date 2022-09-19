@@ -72,6 +72,8 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+const footerDate = document.querySelector(".footer--year");
+
 /*
 FUNCTIONS
 */
@@ -417,3 +419,7 @@ btnSort.addEventListener("click", function (e) {
     });
   }
 });
+
+/* DOM footer*/
+//
+footerDate.textContent = new Date().getFullYear();
