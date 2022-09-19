@@ -1,156 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="shortcut icon" type="image/png" href="/icon.png" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" type="image/png" href="/icon.png" />
 
-    <link rel="stylesheet" href="style.css" />
-    <title>BankPay</title>
-  </head>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-  <body>
-    <!-- TOP NAVIGATION -->
-    <nav>
-      <p class="welcome">Log in to get started</p>
-      <img src="logo.png" alt="Logo" class="logo" />
-      <form class="login">
-        <input
-          type="text"
-          placeholder="user"
-          class="login__input login__input--user"
-          autocomplete="on"
-        />
+  <link rel="stylesheet" href="style.css" />
+  <title>BankPay</title>
+</head>
 
-        <!-- In practice, use type="password" -->
-        <input
-          type="password"
-          placeholder="PIN"
-          maxlength="4"
-          class="login__input login__input--pin"
-          autocomplete="on"
-        />
-        <button class="login__btn">&rarr;</button>
+<body>
+  <!-- TOP NAVIGATION -->
+  <nav>
+    <p class="welcome">Log in to get started</p>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <form class="login">
+      <input type="text" placeholder="user" class="login__input login__input--user" autocomplete="on" />
+
+      <!-- In practice, use type="password" -->
+      <input type="password" placeholder="PIN" maxlength="4" class="login__input login__input--pin" autocomplete="on" />
+      <button class="login__btn">&rarr;</button>
+    </form>
+  </nav>
+
+  <main class="app">
+    <!-- BALANCE -->
+    <div class="balance">
+      <div>
+        <p class="balance__label">Current balance</p>
+        <p class="date">05/03/2037</p>
+      </div>
+      <p class="balance__value">0000€</p>
+    </div>
+
+    <!-- MOVEMENTS -->
+    <div class="movements">
+      <div class="movements__row">
+        <div class="movements__type movements__type--deposit">2 deposit</div>
+        <div class="movements__date">3 days ago</div>
+        <div class="movements__value">4 000€</div>
+      </div>
+      <div class="movements__row">
+        <div class="movements__type movements__type--withdrawal">
+          1 withdrawal
+        </div>
+        <div class="movements__date">24/01/2037</div>
+        <div class="movements__value">-378€</div>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary">
+      <p class="summary__label">In</p>
+      <p class="summary__value summary__value--in">0000€</p>
+      <p class="summary__label">Out</p>
+      <p class="summary__value summary__value--out">0000€</p>
+      <p class="summary__label">Interest</p>
+      <p class="summary__value summary__value--interest">0000€</p>
+      <button class="btn--sort">&downarrow; SORT</button>
+    </div>
+
+    <!-- OPERATION: TRANSFERS -->
+    <div class="operation operation--transfer">
+      <h2>Transfer money</h2>
+      <form class="form form--transfer">
+        <input type="text" class="form__input form__input--to" />
+        <input type="number" class="form__input form__input--amount" />
+        <button class="form__btn form__btn--transfer">&rarr;</button>
+        <label class="form__label">Transfer to</label>
+        <label class="form__label">Amount</label>
       </form>
-    </nav>
+    </div>
 
-    <main class="app">
-      <!-- BALANCE -->
-      <div class="balance">
-        <div>
-          <p class="balance__label">Current balance</p>
-          <p class="date">05/03/2037</p>
-        </div>
-        <p class="balance__value">0000€</p>
-      </div>
+    <!-- OPERATION: LOAN -->
+    <div class="operation operation--loan">
+      <h2>Request loan</h2>
+      <form class="form form--loan">
+        <input type="number" class="form__input form__input--loan-amount" />
+        <button class="form__btn form__btn--loan">&rarr;</button>
+        <label class="form__label form__label--loan">Amount</label>
+      </form>
 
-      <!-- MOVEMENTS -->
-      <div class="movements">
-        <div class="movements__row">
-          <div class="movements__type movements__type--deposit">2 deposit</div>
-          <div class="movements__date">3 days ago</div>
-          <div class="movements__value">4 000€</div>
-        </div>
-        <div class="movements__row">
-          <div class="movements__type movements__type--withdrawal">
-            1 withdrawal
-          </div>
-          <div class="movements__date">24/01/2037</div>
-          <div class="movements__value">-378€</div>
-        </div>
-      </div>
+      <p class="loan--info">ℹ️ Amount must be at least 10% of any deposit</p>
+    </div>
 
-      <!-- SUMMARY -->
-      <div class="summary">
-        <p class="summary__label">In</p>
-        <p class="summary__value summary__value--in">0000€</p>
-        <p class="summary__label">Out</p>
-        <p class="summary__value summary__value--out">0000€</p>
-        <p class="summary__label">Interest</p>
-        <p class="summary__value summary__value--interest">0000€</p>
-        <button class="btn--sort">&downarrow; SORT</button>
-      </div>
+    <!-- OPERATION: CLOSE -->
+    <div class="operation operation--close">
+      <h2>Close account</h2>
+      <form class="form form--close">
+        <input type="text" class="form__input form__input--user" />
+        <input type="password" maxlength="6" class="form__input form__input--pin" autocomplete="on" />
+        <button class="form__btn form__btn--close">&rarr;</button>
+        <label class="form__label">Confirm user</label>
+        <label class="form__label">Confirm PIN</label>
+      </form>
+    </div>
 
-      <!-- OPERATION: TRANSFERS -->
-      <div class="operation operation--transfer">
-        <h2>Transfer money</h2>
-        <form class="form form--transfer">
-          <input type="text" class="form__input form__input--to" />
-          <input type="number" class="form__input form__input--amount" />
-          <button class="form__btn form__btn--transfer">&rarr;</button>
-          <label class="form__label">Transfer to</label>
-          <label class="form__label">Amount</label>
-        </form>
-      </div>
+    <!-- LOGOUT TIMER -->
+    <p class="logout-timer">
+      You will be logged out in <span class="timer">03:00</span>
+    </p>
+  </main>
 
-      <!-- OPERATION: LOAN -->
-      <div class="operation operation--loan">
-        <h2>Request loan</h2>
-        <form class="form form--loan">
-          <input type="number" class="form__input form__input--loan-amount" />
-          <button class="form__btn form__btn--loan">&rarr;</button>
-          <label class="form__label form__label--loan">Amount</label>
-        </form>
+  <footer>
+    <p>
+      copyright &copy;
 
-        <p class="loan--info">ℹ️ Amount must be at least 10% of any deposit</p>
-      </div>
+      <span>
+        <b class="footer--year"> 2022 </b>
+      </span>
+      - &nbsp;
 
-      <!-- OPERATION: CLOSE -->
-      <div class="operation operation--close">
-        <h2>Close account</h2>
-        <form class="form form--close">
-          <input type="text" class="form__input form__input--user" />
-          <input
-            type="password"
-            maxlength="6"
-            class="form__input form__input--pin"
-            autocomplete="on"
-          />
-          <button class="form__btn form__btn--close">&rarr;</button>
-          <label class="form__label">Confirm user</label>
-          <label class="form__label">Confirm PIN</label>
-        </form>
-      </div>
+      <span>
+        <a class="footer--link" href="https://github.com/fadayopaul" target="_blank">
+          <i class="fa fa-github"></i>
+          <b> Paul Fadayo</b>
+        </a>
+      </span>
+    </p>
+  </footer>
+  <br />
+  <script src="script.js"></script>
+  <script src="lecture.js"></script>
+</body>
 
-      <!-- LOGOUT TIMER -->
-      <p class="logout-timer">
-        You will be logged out in <span class="timer">03:00</span>
-      </p>
-    </main>
-
-    <footer>
-      <p>
-        copyright &copy;
-
-        <script>
-          document.write(new Date().getFullYear());
-        </script>
-        - &nbsp;
-
-        <span>
-          <a
-            class="footer--link"
-            href="https://github.com/fadayopaul"
-            target="_blank"
-          >
-            <i class="fa fa-github"></i>
-            <b> Paul Fadayo</b>
-          </a>
-        </span>
-      </p>
-    </footer>
-    <br />
-    <script src="script.js"></script>
-    <script src="lecture.js"></script>
-  </body>
 </html>
