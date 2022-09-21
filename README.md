@@ -1,8 +1,8 @@
-# 🚀BankPay🚀
+# BankPay
 
 A Fictional &amp; Minimalist Bank
 
-## 🎈Live Demo🎈
+## Live Demo🎈
 
 **You Can See The `BankPay` Live On:** [Here](https://fadayopaul.github.io/bankpay/)
 
