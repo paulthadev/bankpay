@@ -18,6 +18,15 @@ body {
   padding: 2rem;
 }
 
+.login--details {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 2rem;
+}
+
+.hidden {
+  display: none;
+}
 /* custom scroll-bar for the body */
 body::-webkit-scrollbar {
   width: 0.8em;

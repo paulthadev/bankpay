@@ -74,6 +74,8 @@ const inputClosePin = document.querySelector(".form__input--pin");
 
 const footerDate = document.querySelector(".footer--year");
 
+const loginDetails = document.querySelector(".login--details");
+
 /*
 FUNCTIONS
 */
@@ -271,6 +273,7 @@ btnLogin.addEventListener("click", function (e) {
     }`;
 
     /*  display the UI */
+    loginDetails.classList.add("hidden");
     containerApp.style.opacity = 100;
 
     /* create current date */
