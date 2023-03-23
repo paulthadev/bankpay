@@ -1,6 +1,6 @@
 # BankPay
 
-A Fictional &amp; Minimalist Bank
+A Fictional &amp; Minimalist Bank which allows users to  Log-in an account, Transfer To Other Accounts, Request Loan , Delete Account, Log-out Timer, Sort Movements, Internationalize Date & Currency.
 
 ## Live Demo🎈
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0c30eb83-4885-41fc-93c7-ba02159c6c47/deploy-status)](https://app.netlify.com/sites/bank-pay/deploys)
@@ -38,7 +38,3 @@ A Fictional &amp; Minimalist Bank
 - JS (Main)🚀
 
 > ✅ **Feel Free To Fork and Contribute**
-
-# Bankpay
-
-> ⚠ Alert: The app has some browser compatibility issues as I've noticed, especially on mobile browsers and if you are not using the latest versions of the browser, the app may not work properly or not working at all.
