@@ -3,9 +3,9 @@
 A Fictional &amp; Minimalist Bank which allows users to  Log-in an account, Transfer To Other Accounts, Request Loan , Delete Account, Log-out Timer, Sort Movements, Internationalize Date & Currency.
 
 ## Live Demo🎈
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0c30eb83-4885-41fc-93c7-ba02159c6c47/deploy-status)](https://app.netlify.com/sites/bank-pay/deploys)
 
-**You Can See The `BankPay App` Live On:** [ Click Here](https://bank-pay.netlify.app)
+
+**You Can See The `BankPay App` Live On:** [ Click Here](https://bankpay.vercel.app/)
 
 ## 👉Log-in credentials 👈
 
